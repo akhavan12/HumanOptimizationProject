@@ -1,6 +1,6 @@
 // set up SVG for D3
-var width  = 960,
-    height = 500,
+var width  = screen.width-60,
+    height = screen.height-180,
     colors = d3.scale.category10();
 
 var svg = d3.select('body')
@@ -14,23 +14,32 @@ var svg = d3.select('body')
 //  - reflexive edges are indicated on the node (as a bold black circle).
 //  - links are always source < target; edge directions are set by 'left' and 'right'.
 var nodes = [
-    {id: 0, reflexive: false},
-    {id: 1, reflexive: true },
-    {id: 2, reflexive: false}
+    {"name":"S",id: 0, x:width/2,y:height/2, reflexive: false},
+    {id: 1, x:width/3,y:height/3-150, reflexive: true },
+    {id: 2, x:width/4-20,y:height/5*2, reflexive: false},
+    {id: 3, x:width/3+40,y:height/4*3, reflexive: false},
+    {id: 4, x:width/3*2,y:height/2+50, reflexive: false},
+    //{id: 5, x:width/2,y:500, reflexive: false}
   ],
-  lastNodeId = 2,
+  lastNodeId = 5,
   links = [
-    {source: nodes[0], target: nodes[1], left: false, right: true },
-    {source: nodes[1], target: nodes[2], left: false, right: true }
+    {source: nodes[0], target: nodes[1], left: false, right: false },
+    {source: nodes[0], target: nodes[2], left: false, right: false },
+    {source: nodes[0], target: nodes[3], left: false, right: false },
+    {source: nodes[2], target: nodes[1], left: false, right: false },
+    {source: nodes[2], target: nodes[3], left: false, right: false },
+    {source: nodes[4], target: nodes[3], left: false, right: false },
+    {source: nodes[4], target: nodes[1], left: false, right: false },
+
   ];
 
 // init D3 force layout
 var force = d3.layout.force()
-    .nodes(nodes)
-    .links(links)
-    .size([width, height])
-    .linkDistance(150)
-    .charge(-500)
+    // .nodes(nodes)
+    // .links(links)
+    // .size([width, height])
+    // .linkDistance(500)
+    // .charge(-500)
     .on('tick', tick)
 
 // define arrow markers for graph links
@@ -147,7 +156,7 @@ function restart() {
 
   g.append('svg:circle')
     .attr('class', 'node')
-    .attr('r', 12)
+    .attr('r', 24)
     .style('fill', function(d) { return (d === selected_node) ? d3.rgb(colors(d.id)).brighter().toString() : colors(d.id); })
     .style('stroke', function(d) { return d3.rgb(colors(d.id)).darker().toString(); })
     .classed('reflexive', function(d) { return d.reflexive; })
@@ -253,7 +262,7 @@ function mousedown() {
       node = {id: ++lastNodeId, reflexive: false};
   node.x = point[0];
   node.y = point[1];
-  nodes.push(node);
+  //nodes.push(node);
 
   restart();
 }

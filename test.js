@@ -23,14 +23,9 @@ var nodes = [
   ],
   lastNodeId = 4,
   links = [
-    {source: nodes[0], target: nodes[1]},
-    {source: nodes[0], target: nodes[2]},
-    {source: nodes[0], target: nodes[3]},
-    {source: nodes[2], target: nodes[1]},
-    {source: nodes[2], target: nodes[3]},
-    {source: nodes[4], target: nodes[3]},
-    {source: nodes[4], target: nodes[1]},
-  ];
+  ]
+
+
 
 // init D3 force layout
 var force = d3.layout.force()
@@ -39,7 +34,7 @@ var force = d3.layout.force()
     // .size([width, height])
     // .linkDistance(500)
     // .charge(-500)
-    .on('tick', tick)
+    .on('tick', tick1)
 
 // define arrow markers for graph links
 svg.append('svg:defs').append('svg:marker')
@@ -62,12 +57,68 @@ svg.append('svg:defs').append('svg:marker')
     .attr('orient', 'auto')
   .append('svg:path')
     .attr('d', 'M10,-5L0,0L10,5')
-    .attr('fill', '#000');
+    .attr('fill', '#000')
 
-// line displayed when dragging new nodes
+svg.append('line')
+  .attr('class','line')
+  .attr("x1", nodes[0].x)
+  .attr("y1", nodes[0].y)
+  .attr("x2", nodes[1].x)
+  .attr("y2", nodes[1].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[0].x)
+.attr("y1", nodes[0].y)
+.attr("x2", nodes[2].x)
+.attr("y2", nodes[2].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[0].x)
+.attr("y1", nodes[0].y)
+.attr("x2", nodes[3].x)
+.attr("y2", nodes[3].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[2].x)
+.attr("y1", nodes[2].y)
+.attr("x2", nodes[1].x)
+.attr("y2", nodes[1].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[2].x)
+.attr("y1", nodes[2].y)
+.attr("x2", nodes[3].x)
+.attr("y2", nodes[3].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[4].x)
+.attr("y1", nodes[4].y)
+.attr("x2", nodes[1].x)
+.attr("y2", nodes[1].y)
+
+svg.append('line')
+.attr('class','line')
+.attr("x1", nodes[4].x)
+.attr("y1", nodes[4].y)
+.attr("x2", nodes[3].x)
+.attr("y2", nodes[3].y)
+
+//line displayed when dragging new nodes
+  var drag_line = svg.append('svg:path')
+  .attr('class', 'link dragline hidden')
+  .attr('d', 'M0,0L0,0');
+
 // var drag_line = svg.append('svg:path')
 //   .attr('class', 'link dragline hidden')
 //   .attr('d', 'M0,0L0,0');
+
+
+
 
 // handles to link and node element groups
 var path = svg.append('svg:g').selectAll('path'),
@@ -109,6 +160,26 @@ function tick() {
   });
 }
 //var color = d3.interpolateLab("#008000", "#c83a22");
+function tick1() {
+    path.attr("d", function(d) {
+        var dx = d.target.x - d.source.x,
+            dy = d.target.y - d.source.y,
+            dr = Math.sqrt(dx * dx + dy * dy);
+        return "M" + 
+            d.source.x + "," + 
+            d.source.y + "A" + 
+            dr + "," + dr + " 0 0,1 " + 
+            d.target.x + "," + 
+            d.target.y;
+    });
+
+    circle.attr('transform', function(d) {
+    return 'translate(' + d.x + ',' + d.y + ')';
+    });
+
+}
+
+
 // update graph (called when needed)
 function restart() {
   // path (link) group
@@ -121,13 +192,17 @@ function restart() {
 
 
   // add new links
-  path.enter().append('svg:path')
-    .attr('class', 'link')
+  if(blue==true){
+      path.enter().append('svg:path')
+    // .attr('class', function()
+    //   {if(blue==true) 
+    //     return 'link1'
+    //     else return 'link'})
+    .attr('class','link')
+    .attr('id','toColor')
     .classed('selected', function(d) { return d === selected_link; })
     .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
     .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
-    // .style("fill", function(d) { return color(d.t); })
-    // .style("stroke", function(d) { return color(d.t); })
     .on('mousedown', function(d) {
       if(d3.event.ctrlKey) return;
 
@@ -138,6 +213,49 @@ function restart() {
       selected_node = null;
       restart();
     });
+  }
+  if(red==true){
+      path.enter().append('svg:path')
+    // .attr('class', function()
+    //   {if(blue==true) 
+    //     return 'link1'
+    //     else return 'link'})
+    .attr('class','link1')
+    .attr('id','toColor')
+    .classed('selected', function(d) { return d === selected_link; })
+    .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
+    .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
+    .on('mousedown', function(d) {
+      if(d3.event.ctrlKey) return;
+
+      // select link
+      mousedown_link = d;
+      if(mousedown_link === selected_link) selected_link = null;
+      else selected_link = mousedown_link;
+      selected_node = null;
+      restart();
+    });
+  }
+  // path.enter().append('svg:path')
+  //   // .attr('class', function()
+  //   //   {if(blue==true) 
+  //   //     return 'link1'
+  //   //     else return 'link'})
+  //   .attr('class','link')
+  //   .attr('id','toColor')
+  //   .classed('selected', function(d) { return d === selected_link; })
+  //   .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
+  //   .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
+  //   .on('mousedown', function(d) {
+  //     if(d3.event.ctrlKey) return;
+
+  //     // select link
+  //     mousedown_link = d;
+  //     if(mousedown_link === selected_link) selected_link = null;
+  //     else selected_link = mousedown_link;
+  //     selected_node = null;
+  //     restart();
+  //   });
 
   // remove old links
   path.exit().remove();
@@ -183,10 +301,10 @@ function restart() {
 
       // reposition drag line
       //drag line function
-      // drag_line
-      //   .style('marker-end', 'url(#end-arrow)')
-      //   .classed('hidden', false)
-      //   .attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + mousedown_node.x + ',' + mousedown_node.y);
+      drag_line
+        .style('marker-end', 'url(#end-arrow)')
+        .classed('hidden', false)
+        .attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + mousedown_node.x + ',' + mousedown_node.y);
 
       restart();
     })
@@ -231,7 +349,7 @@ function restart() {
         links.push(link);
       }
 
-      // select new link
+      //select new link
       selected_link = link;
       selected_node = null;
       restart();
@@ -251,26 +369,13 @@ function restart() {
   force.start();
 }
 
-// function sample(d, precision) {
-//   var path = document.createElementNS(d3.ns.prefix.svg, "path");
-//   path.setAttribute("d", d);
 
-//   var n = path.getTotalLength(), t = [0], i = 0, dt = precision;
-//   while ((i += dt) < n) t.push(i);
-//   t.push(n);
-
-//   return t.map(function(t) {
-//     var p = path.getPointAtLength(t), a = [p.x, p.y];
-//     a.t = t / n;
-//     return a;
-//   });
-// }
     
 function mousedown() {
   // prevent I-bar on drag
   //d3.event.preventDefault();
 
-  // because :active only works in WebKit?
+  //because :active only works in WebKit?
   svg.classed('active', true);
 
 //mousedown button here
@@ -290,18 +395,18 @@ function mousemove() {
   if(!mousedown_node) return;
 
   // update drag line
-  // drag_line.attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
+  drag_line.attr('d', 'M' + mousedown_node.x + ',' + mousedown_node.y + 'L' + d3.mouse(this)[0] + ',' + d3.mouse(this)[1]);
 
   restart();
 }
 
 function mouseup() {
-  // if(mousedown_node) {
-  //   // hide drag line
-  //   drag_line
-  //     .classed('hidden', true)
-  //     .style('marker-end', '');
-  // }
+  if(mousedown_node) {
+    // hide drag line
+    drag_line
+      .classed('hidden', true)
+      .style('marker-end', '');
+  }
 
   // because :active only works in WebKit?
   // svg.classed('active', false);
@@ -310,93 +415,29 @@ function mouseup() {
   resetMouseVars();
 }
 
-function spliceLinksForNode(node) {
-  var toSplice = links.filter(function(l) {
-    return (l.source === node || l.target === node);
-  });
-  toSplice.map(function(l) {
-    links.splice(links.indexOf(l), 1);
-  });
-}
+// function spliceLinksForNode(node) {
+//   var toSplice = links.filter(function(l) {
+//     return (l.source === node || l.target === node);
+//   });
+//   toSplice.map(function(l) {
+//     links.splice(links.indexOf(l), 1);
+//   });
+// }
 
+var blue=false;
+var red=true;
 function updateBlue(){
-  console.log("update");
+  blue = true;
+  red = false;
+  console.log(blue);
 }
 
 function updateRed(){
+    red=true;
+    blue=false;
+    console.log(blue);
 }
 
-// only respond once per keydown
-// var lastKeyDown = -1;
-
-// function keydown() {
-//   d3.event.preventDefault();
-
-//   if(lastKeyDown !== -1) return;
-//   lastKeyDown = d3.event.keyCode;
-
-//   // ctrl
-//   if(d3.event.keyCode === 17) {
-//     circle.call(force.drag);
-//     svg.classed('ctrl', true);
-//   }
-
-//   if(!selected_node && !selected_link) return;
-//   switch(d3.event.keyCode) {
-//     case 8: // backspace
-//     case 46: // delete
-//       if(selected_node) {
-//         nodes.splice(nodes.indexOf(selected_node), 1);
-//         spliceLinksForNode(selected_node);
-//       } else if(selected_link) {
-//         links.splice(links.indexOf(selected_link), 1);
-//       }
-//       selected_link = null;
-//       selected_node = null;
-//       restart();
-//       break;
-//     case 66: // B
-//       if(selected_link) {
-//         // set link direction to both left and right
-//         selected_link.left = true;
-//         selected_link.right = true;
-//       }
-//       restart();
-//       break;
-//     case 76: // L
-//       if(selected_link) {
-//         // set link direction to left only
-//         selected_link.left = true;
-//         selected_link.right = false;
-//       }
-//       restart();
-//       break;
-//     case 82: // R
-//       if(selected_node) {
-//         // toggle node reflexivity
-//         selected_node.reflexive = !selected_node.reflexive;
-//       } else if(selected_link) {
-//         // set link direction to right only
-//         selected_link.left = false;
-//         selected_link.right = true;
-//       }
-//       restart();
-//       break;
-//   }
-// }
-
-
-// function keyup() {
-//   lastKeyDown = -1;
-
-//   // ctrl
-//   if(d3.event.keyCode === 17) {
-//     circle
-//       .on('mousedown.drag', null)
-//       .on('touchstart.drag', null);
-//     svg.classed('ctrl', false);
-//   }
-// }
 
 // app starts here
 svg.on('mousedown', mousedown)

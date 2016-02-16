@@ -23,14 +23,6 @@ var nodes = [
   ],
   lastNodeId = 4,
   links = [
-    {source: nodes[0], target: nodes[1], left: false, right: false },
-    {source: nodes[0], target: nodes[2], left: false, right: false },
-    {source: nodes[0], target: nodes[3], left: false, right: false },
-    {source: nodes[2], target: nodes[1], left: false, right: false },
-    {source: nodes[2], target: nodes[3], left: false, right: false },
-    {source: nodes[4], target: nodes[3], left: false, right: false },
-    {source: nodes[4], target: nodes[1], left: false, right: false },
-
   ];
 
 // init D3 force layout

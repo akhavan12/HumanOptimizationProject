@@ -251,20 +251,20 @@ function restart() {
   force.start();
 }
 
-function sample(d, precision) {
-  var path = document.createElementNS(d3.ns.prefix.svg, "path");
-  path.setAttribute("d", d);
+// function sample(d, precision) {
+//   var path = document.createElementNS(d3.ns.prefix.svg, "path");
+//   path.setAttribute("d", d);
 
-  var n = path.getTotalLength(), t = [0], i = 0, dt = precision;
-  while ((i += dt) < n) t.push(i);
-  t.push(n);
+//   var n = path.getTotalLength(), t = [0], i = 0, dt = precision;
+//   while ((i += dt) < n) t.push(i);
+//   t.push(n);
 
-  return t.map(function(t) {
-    var p = path.getPointAtLength(t), a = [p.x, p.y];
-    a.t = t / n;
-    return a;
-  });
-}
+//   return t.map(function(t) {
+//     var p = path.getPointAtLength(t), a = [p.x, p.y];
+//     a.t = t / n;
+//     return a;
+//   });
+// }
     
 function mousedown() {
   // prevent I-bar on drag
@@ -276,11 +276,11 @@ function mousedown() {
 //mousedown button here
   if(d3.event.ctrlKey || mousedown_node || mousedown_link) return;
 
-  // insert new node at point
-  var point = d3.mouse(this),
-      node = {id: ++lastNodeId, reflexive: false};
-  node.x = point[0];
-  node.y = point[1];
+  // insert new node at point ------------------!
+  // var point = d3.mouse(this),
+  //     node = {id: ++lastNodeId, reflexive: false};
+  // node.x = point[0];
+  // node.y = point[1];
   //nodes.push(node);
 
   restart();
@@ -319,18 +319,11 @@ function spliceLinksForNode(node) {
   });
 }
 
-// d3.select("#option1")
-//   .on("click",updateBlue());
-
 function updateBlue(){
-  // var cordinates= [width/2,height/2];
-  // d3.mouse(this)=cordinates;
   console.log("update");
 }
 
 function updateRed(){
-  // var cordinates=[width/2,height/2];
-  // d3.mouse(this)=cordinates;
 }
 
 // only respond once per keydown

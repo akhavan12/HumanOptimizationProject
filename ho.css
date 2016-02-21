@@ -15,21 +15,21 @@ svg:not(.active):not(.ctrl) {
 path.link {
   fill: none;
   stroke: #FF0000;
-  stroke-width: 8px;
+  stroke-width: 2px;
   cursor: default;
 }
 
 path.link1 {
   fill: none;
   stroke: #0400FF;
-  stroke-width: 8px;
+  stroke-width: 2px;
   cursor: default;
 }
 
 .line {
   fill: none;
   stroke: #000;
-  stroke-width: 8px;
+  stroke-width: 4px;
   cursor: default;
 }
 
@@ -74,15 +74,15 @@ circle.node.reflexive {
   stroke-width: 2.5px;
 }
 
-text {
+/*text {
   font: 12px sans-serif;
   pointer-events: none;
-}
+}*/
 
-text.id {
+/*text.id {
   text-anchor: middle;
   font-weight: bold;
-}
+}*/
 
 <style>
 div.relative {

@@ -88,11 +88,13 @@ svg.append('line')
 .attr("y2", nodes[1].y)
 
 svg.append('line')
-.attr('class','line')
+.attr('class','line1')
 .attr("x1", nodes[2].x)
 .attr("y1", nodes[2].y)
 .attr("x2", nodes[3].x)
 .attr("y2", nodes[3].y)
+.attr("stroke-width", 2)
+.attr("stroke", "pink");
 
 svg.append('line')
 .attr('class','line')
@@ -111,7 +113,7 @@ svg.append('line')
 //line displayed when dragging new nodes
   var drag_line = svg.append('svg:path')
   .attr('class', 'link dragline hidden')
-  .attr('d', 'M0,0L0,0');
+  .attr('d', 'M0,0L0,0')
 
 // var drag_line = svg.append('svg:path')
 //   .attr('class', 'link dragline hidden')

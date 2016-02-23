@@ -223,70 +223,210 @@ var data={
   links = [];
 
 svg.append('line')
-  .attr('class','line')
+  .attr('class','line_norm')
   .attr("x1", nodes1[0].x)
   .attr("y1", nodes1[0].y)
   .attr("x2", nodes1[1].x)
   .attr("y2", nodes1[1].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[0].x)
+  .attr("y1", nodes1[0].y)
+  .attr("x2", nodes1[0].x+(nodes1[1].x-nodes1[0].x)/2)
+  .attr("y2", nodes1[0].y+(nodes1[1].y-nodes1[0].y)/2)
+
+
+   svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[0].x+(nodes1[1].x-nodes1[0].x)/2)
+  .attr("y1", nodes1[0].y+(nodes1[1].y-nodes1[0].y)/2)
+  .attr("x2", nodes1[1].x)
+  .attr("y2", nodes1[1].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[0].x)
 .attr("y1", nodes1[0].y)
 .attr("x2", nodes1[2].x)
 .attr("y2", nodes1[2].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[0].x)
+  .attr("y1", nodes1[0].y)
+  .attr("x2", nodes1[0].x+(nodes1[2].x-nodes1[0].x)/2)
+  .attr("y2", nodes1[0].y+(nodes1[2].y-nodes1[0].y)/2)
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[0].x+(nodes1[2].x-nodes1[0].x)/2)
+  .attr("y1", nodes1[0].y+(nodes1[2].y-nodes1[0].y)/2)
+  .attr("x2", nodes1[2].x)
+  .attr("y2", nodes1[2].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[0].x)
 .attr("y1", nodes1[0].y)
 .attr("x2", nodes1[3].x)
 .attr("y2", nodes1[3].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[0].x)
+  .attr("y1", nodes1[0].y)
+  .attr("x2", nodes1[0].x+(nodes1[3].x-nodes1[0].x)/3)
+  .attr("y2", nodes1[0].y+(nodes1[3].y-nodes1[0].y)/3)
+
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[0].x+((nodes1[3].x-nodes1[0].x)/3))
+  .attr("y1", nodes1[0].y+((nodes1[3].y-nodes1[0].y)/3))
+  .attr("x2", nodes1[0].x+((nodes1[3].x-nodes1[0].x)/3)*2)
+  .attr("y2", nodes1[0].y+((nodes1[3].y-nodes1[0].y)/3)*2)
+
+
+  svg.append('line')
+  .attr('class','line_blue')
+  .attr("x1", nodes1[0].x+((nodes1[3].x-nodes1[0].x)/3)*2)
+  .attr("y1", nodes1[0].y+((nodes1[3].y-nodes1[0].y)/3)*2)
+  .attr("x2", nodes1[3].x)
+  .attr("y2", nodes1[3].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[2].x)
 .attr("y1", nodes1[2].y)
 .attr("x2", nodes1[1].x)
 .attr("y2", nodes1[1].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[1].x)
+  .attr("y1", nodes1[1].y)
+  .attr("x2", nodes1[1].x+(nodes1[2].x-nodes1[1].x)/2)
+  .attr("y2", nodes1[1].y+(nodes1[2].y-nodes1[1].y)/2)
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[1].x+(nodes1[2].x-nodes1[1].x)/2)
+  .attr("y1", nodes1[1].y+(nodes1[2].y-nodes1[1].y)/2)
+  .attr("x2", nodes1[2].x)
+  .attr("y2", nodes1[2].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[2].x)
 .attr("y1", nodes1[2].y)
 .attr("x2", nodes1[3].x)
 .attr("y2", nodes1[3].y)
 
+
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[4].x)
 .attr("y1", nodes1[4].y)
 .attr("x2", nodes1[5].x)
 .attr("y2", nodes1[5].y)
 
+
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[4].x)
+  .attr("y1", nodes1[4].y)
+  .attr("x2", nodes1[4].x+(nodes1[5].x-nodes1[4].x)/3)
+  .attr("y2", nodes1[4].y+(nodes1[5].y-nodes1[4].y)/3)
+
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[4].x+((nodes1[5].x-nodes1[4].x)/3))
+  .attr("y1", nodes1[4].y+((nodes1[5].y-nodes1[4].y)/3))
+  .attr("x2", nodes1[4].x+((nodes1[5].x-nodes1[4].x)/3)*2)
+  .attr("y2", nodes1[4].y+((nodes1[5].y-nodes1[4].y)/3)*2)
+
+
+  svg.append('line')
+  .attr('class','line_blue')
+  .attr("x1", nodes1[4].x+((nodes1[5].x-nodes1[4].x)/3)*2)
+  .attr("y1", nodes1[4].y+((nodes1[5].y-nodes1[4].y)/3)*2)
+  .attr("x2", nodes1[5].x)
+  .attr("y2", nodes1[5].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[4].x)
 .attr("y1", nodes1[4].y)
 .attr("x2", nodes1[3].x)
 .attr("y2", nodes1[3].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[4].x)
+  .attr("y1", nodes1[4].y)
+  .attr("x2", nodes1[4].x+(nodes1[3].x-nodes1[4].x)/3)
+  .attr("y2", nodes1[4].y+(nodes1[3].y-nodes1[4].y)/3)
+
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[4].x+((nodes1[3].x-nodes1[4].x)/3))
+  .attr("y1", nodes1[4].y+((nodes1[3].y-nodes1[4].y)/3))
+  .attr("x2", nodes1[4].x+((nodes1[3].x-nodes1[4].x)/3)*2)
+  .attr("y2", nodes1[4].y+((nodes1[3].y-nodes1[4].y)/3)*2)
+
+
+  svg.append('line')
+  .attr('class','line_blue')
+  .attr("x1", nodes1[4].x+((nodes1[3].x-nodes1[4].x)/3)*2)
+  .attr("y1", nodes1[4].y+((nodes1[3].y-nodes1[4].y)/3)*2)
+  .attr("x2", nodes1[3].x)
+  .attr("y2", nodes1[3].y)
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[5].x)
 .attr("y1", nodes1[5].y)
 .attr("x2", nodes1[0].x)
 .attr("y2", nodes1[0].y)
 
+  svg.append('line')
+  .attr('class','line_red')
+  .attr("x1", nodes1[0].x)
+  .attr("y1", nodes1[0].y)
+  .attr("x2", nodes1[0].x+(nodes1[5].x-nodes1[0].x)/3)
+  .attr("y2", nodes1[0].y+(nodes1[5].y-nodes1[0].y)/3)
+
+
+  svg.append('line')
+  .attr('class','line_green')
+  .attr("x1", nodes1[0].x+((nodes1[5].x-nodes1[0].x)/3))
+  .attr("y1", nodes1[0].y+((nodes1[5].y-nodes1[0].y)/3))
+  .attr("x2", nodes1[0].x+((nodes1[5].x-nodes1[0].x)/3)*2)
+  .attr("y2", nodes1[0].y+((nodes1[5].y-nodes1[0].y)/3)*2)
+
+
+  svg.append('line')
+  .attr('class','line_blue')
+  .attr("x1", nodes1[0].x+((nodes1[5].x-nodes1[0].x)/3)*2)
+  .attr("y1", nodes1[0].y+((nodes1[5].y-nodes1[0].y)/3)*2)
+  .attr("x2", nodes1[5].x)
+  .attr("y2", nodes1[5].y)
+
+
+
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[6].x)
 .attr("y1", nodes1[6].y)
 .attr("x2", nodes1[1].x)
 .attr("y2", nodes1[1].y)
 
 svg.append('line')
-.attr('class','line')
+.attr('class','line_norm')
 .attr("x1", nodes1[5].x)
 .attr("y1", nodes1[5].y)
 .attr("x2", nodes1[7].x)

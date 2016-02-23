@@ -26,11 +26,32 @@ path.link1 {
   cursor: default;
 }
 
-.line {
+.line_norm {
   fill: none;
   stroke: #000;
   stroke-width: 4px;
   cursor: default;
+}
+
+.line_red {
+  fill: none;
+  stroke: #db4f68;
+  stroke-width: 4px;
+  cursor: default;
+}
+
+.line_green{
+  fill:none;
+  stroke:#33e787;
+  stroke-width: 4px;
+  cursor:default;
+}
+
+.line_blue{
+  fill:none;
+  stroke:#3375e7;
+  stroke-width: 4px;
+  cursor:default;
 }
 
 svg:not(.active):not(.ctrl) path.link {

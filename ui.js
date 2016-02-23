@@ -140,6 +140,40 @@ var green_time=svg.append("svg:text")
                 	.attr("fill", "#33e787");
 
 
+var redButton=svg.append('g')
+                .append("svg:polygon")
+                .attr('class','redButton')
+                .style("fill","#db4f68")
+                .attr("points","650,590, 665,590, 670,640, 645,640")
+                .attr("cursor","pointer")
+
+    redButton.on('click',function(){
+      console.log("this is red truck");
+    });
+
+var greenButton=svg.append('g')
+                .append("svg:polygon")
+                .attr('class','greenButton')
+                .style("fill","#33e787")
+                .attr("points","710,590, 725,590, 730,640, 705,640")
+                .attr('cursor','pointer')
+
+    greenButton.on('click',function(){
+      console.log("this is green truck");
+    });
+
+var blueButton=svg.append('g')
+                .append("svg:polygon")
+                .style("fill","#3375e7")
+                .attr('class','blueButton')
+                .attr("points","770,590, 785,590, 790,640, 765,640")
+                .attr('cursor','pointer')
+
+    blueButton.on('click',function(){
+      console.log("this is blue truck");
+    });
+
+
 
 var reset = svg.append("g")
 	reset.append("svg:image")
@@ -156,6 +190,7 @@ var trumpet = svg.append("g")
 		.attr("y","20")
 		.attr("width","60")
 		.attr("height","60");
+
 
 var data={
 			"nodes":[
@@ -271,6 +306,14 @@ svg.append('line')
 // 	.style('fill','red')
 // 	.style('stroke','white')
 
+var depot = svg.append("g")
+	depot.append("svg:image")
+		.attr("xlink:href","depot.png")
+		.attr("x",width/2-36)
+		.attr("y",height/2-35)
+		.attr("width","70")
+		.attr("height","70");
+
 
 data.nodes.forEach(function(d) {
                 d.fixed = true;
@@ -303,9 +346,11 @@ node.append("circle")
 				// .style("fill", function(d) { return fill(d.type); })
 				
 			
-// var depot =d3.select("body")
-// 			.selectAll(".node.id0")
-// 			.append("g")
+d3.select("body")
+	.select(".node.id0")
+	.attr('opacity', 0)
+
+
 
 // 		depot.append("svg:image")	
 // 			.attr("class","start_image")
@@ -315,13 +360,6 @@ node.append("circle")
 // 			.attr("width","100%")
 // 			.attr("height","100%")
 
-var depot = svg.append("g")
-	depot.append("svg:image")
-		.attr("xlink:href","depot.png")
-		.attr("x",width/2-36)
-		.attr("y",height/2-35)
-		.attr("width","70")
-		.attr("height","70");
 
 
 	// .attr("x",function(d){return d.x})
@@ -344,6 +382,39 @@ var depot = svg.append("g")
 		
 // 			  node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 // 			});
+
+
+
+svg.append('svg:defs').append('svg:marker')
+    .attr('id', 'end-arrow')
+    .attr('viewBox', '0 -5 10 10')
+    .attr('refX', 6)
+    .attr('markerWidth', 3)
+    .attr('markerHeight', 3)
+    .attr('orient', 'auto')
+  .append('svg:path')
+    .attr('d', 'M0,-5L10,0L0,5')
+    .attr('fill', '#000');
+
+ svg.append('svg:defs').append('svg:marker')
+    .attr('id', 'start-arrow')
+    .attr('viewBox', '0 -5 10 10')
+    .attr('refX', 4)
+    .attr('markerWidth', 3)
+    .attr('markerHeight', 3)
+    .attr('orient', 'auto')
+  .append('svg:path')
+    .attr('d', 'M10,-5L0,0L10,5')
+    .attr('fill', '#000');
+
+// line displayed when dragging new nodes
+var drag_line = svg.append('svg:path')
+  .attr('class', 'link dragline hidden')
+  .attr('d', 'M0,0L0,0');
+
+// handles to link and node element groups
+var path = svg.append('svg:g').selectAll('path')
+
 
 
 

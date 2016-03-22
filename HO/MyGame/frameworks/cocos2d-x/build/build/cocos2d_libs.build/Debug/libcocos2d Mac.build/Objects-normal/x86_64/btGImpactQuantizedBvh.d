@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btGImpactQuantizedBvh.cpp \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btGImpactQuantizedBvh.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btGImpactBvh.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btAlignedObjectArray.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btScalar.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btAlignedAllocator.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btBoxCollision.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btTransform.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btMatrix3x3.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btVector3.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btMinMax.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btQuaternion.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btQuadWord.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btTriangleShapeEx.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btCollisionShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//BroadphaseCollision/btBroadphaseProxy.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btTriangleShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btConvexShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btCollisionMargin.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btBoxShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btPolyhedralConvexShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/BulletCollision//CollisionShapes/btConvexInternalShape.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btAabbUtil2.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btClipPolygon.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btGeometryUtil.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btGeometryOperations.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/external/bullet/BulletCollision/Gimpact/btQuantization.h \
+  /Users/ericgo/Documents/web/cocos2d-x-3/HO/MyGame/frameworks/cocos2d-x/build/../external/bullet/LinearMath/btQuickprof.h
